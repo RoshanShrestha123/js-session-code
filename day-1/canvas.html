@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+  </head>
+  <body>
+    <canvas
+      width="300"
+      height="300"
+      id="canvas"
+      style="border: 2px solid black"
+    ></canvas>
+  </body>
+
+  <script>
+    let canvas = document.getElementById("canvas"); // paper
+    let context = canvas.getContext("2d"); //pen
+
+    context.beginPath();
+    context.fillStyle = "red";
+    context.rect(0, 0, 50, 50);
+    context.fill();
+
+    context.beginPath();
+    context.fillStyle = "black";
+    context.arc(80, 30, 20, 0, 2 * Math.PI);
+    context.fill();
+
+    context.beginPath();
+    context.fillStyle = "blue";
+    context.rect(60, 60, 50, 50);
+    context.fill();
+  </script>
+</html>

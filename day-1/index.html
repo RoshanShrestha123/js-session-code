@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1 id="title" style="background-color: red">Hello world</h1>
+  </body>
+
+  <script>
+    // js code
+    let title = document.getElementById("title");
+
+    let font_size = 10;
+    setInterval(() => {
+      title.style.fontSize = font_size + "px";
+      font_size += 10;
+    }, 1000);
+  </script>
+</html>

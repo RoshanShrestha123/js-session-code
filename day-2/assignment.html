@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style>
+      #container {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body style="padding: 0; margin: 0">
+    <canvas
+      id="canvas"
+      width="300"
+      height="300"
+      style="background-color: black"
+    ></canvas>
+  </body>
+
+  <script>
+    // logic goes here!
+    const canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d"); //pen
+
+    canvas.addEventListener("mousemove", (e) => {
+      console.log(e.clientX, e.clientY);
+      context.clearRect(0, 0, 300, 300); // clear everything before drawing
+
+      // draw circle
+      context.beginPath();
+      context.fillStyle = "blue";
+      context.arc(e.clientX, e.clientY, 30, 0, 2 * Math.PI);
+      context.fill();
+
+      // draw circle
+      context.beginPath();
+      context.fillStyle = "red";
+      context.arc(e.clientX, e.clientY, 20, 0, 2 * Math.PI);
+      context.fill();
+
+      // draw circle
+      context.beginPath();
+      context.fillStyle = "orange";
+      context.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+      context.fill();
+    });
+  </script>
+</html>
