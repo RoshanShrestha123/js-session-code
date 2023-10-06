@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Loop</title>
+  </head>
+  <body>
+    <canvas
+      style="background-color: red"
+      id="canvas"
+      width="300"
+      height="200"
+    ></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      const c = canvas.getContext("2d");
+
+      let x = 0;
+      let y = 0;
+
+      function renderBox() {
+        c.beginPath();
+        c.rect(x, y, 50, 50);
+        c.fill();
+        x += 1;
+        y += 1;
+      }
+
+      // Game Loop
+      function update() {
+        // update code goes here
+        c.clearRect(0, 0, 300, 300);
+        renderBox();
+        window.requestAnimationFrame(update);
+      }
+
+      update();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="300"
+      height="300"
+      style="background-color: green"
+    ></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let x = 0;
+      let y = 0;
+
+      // game loop here
+      function render() {
+        // put your update logic here!
+        ctx.clearRect(0, 0, 300, 300);
+
+        ctx.beginPath();
+        ctx.fillStyle = "blue";
+        ctx.arc(x, y, 20, 0, 360);
+        ctx.fill();
+
+        y += 2;
+
+        window.requestAnimationFrame(render);
+      }
+
+      canvas.addEventListener("click", (e) => {
+        // should do something
+        x = e.offsetX;
+        y = e.offsetY;
+      });
+
+      render();
+    </script>
+  </body>
+</html>
