@@ -1,39 +1,40 @@
 class Player {
   constructor() {
+    // init
     this.position = {
-      x: canvas.width / 2,
-      y: canvas.height / 2,
-    };
-
-    this.size = {
-      width: 50,
-      height: 50,
+      x: canvas.width / 2.8,
+      y: canvas.height / 2.7,
     };
 
     this.velocity = {
       x: 0,
       y: 0,
     };
+
+    this.size = 50;
+    this.image = new Image();
+    this.image.src = "./ship.png";
   }
 
   draw() {
     c.beginPath();
     c.fillStyle = "red";
-    c.fillRect(
+    c.drawImage(
+      this.image,
       this.position.x,
       this.position.y,
-      this.size.width,
-      this.size.height
+      this.size,
+      this.size
     );
   }
 
-  renderPlayer() {
-    this.draw();
-    this.movePlayer();
-  }
-
-  movePlayer() {
+  move() {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+  }
+
+  update() {
+    this.draw();
+    this.move();
   }
 }
