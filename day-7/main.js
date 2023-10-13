@@ -7,13 +7,39 @@ const c = canvas.getContext("2d");
 
 const player = new Player();
 let allBullets = [];
+let enemies = [];
+let score = 0;
+
+setInterval(() => {
+  enemies.push(new Enemy());
+}, Math.random() * (1500 - 1000) + 1000);
 
 function loop() {
   c.clearRect(0, 0, canvas.width, canvas.height);
+
   player.update();
+  player.collision(enemies);
+
+  for (let i = 0; i < enemies.length; i++) {
+    enemies[i].update(player.isDead);
+    enemies[i].collision(allBullets);
+    if (enemies[i].isCrossedBorder) {
+      player.isDead = true;
+    }
+  }
 
   for (let i = 0; i < allBullets.length; i++) {
     allBullets[i].update();
+  }
+
+  c.font = "30px Arial";
+  c.fillStyle = "white";
+  c.fillText(score, 10, 40);
+
+  if (player.isDead) {
+    c.font = "30px Arial";
+    c.fillStyle = "white";
+    c.fillText("GAME OVER!", 150, canvas.height / 2);
   }
 
   requestAnimationFrame(loop); //60

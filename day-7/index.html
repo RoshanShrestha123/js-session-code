@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space Shooter game</title>
   </head>
-  <body>
+  <body
+    style="
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    "
+  >
     <canvas
       id="canvas"
       width="500"
       height="500"
-      style="background-color: black"
+      style="background-color: black; border: 1px solid white"
     ></canvas>
 
+    <script src="Enemy.js"></script>
     <script src="bullet.js"></script>
     <script src="player.js"></script>
     <script src="main.js"></script>
