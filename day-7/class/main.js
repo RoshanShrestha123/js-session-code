@@ -7,10 +7,21 @@ const c = canvas.getContext("2d");
 
 const player = new Player();
 let allBullets = [];
+let enemies = [];
+
+setInterval(() => {
+  const enemy = new Enemy();
+  enemies.push(enemy);
+}, 2000);
 
 function loop() {
   c.clearRect(0, 0, canvas.width, canvas.height);
   player.update();
+  for (let i = 0; i < enemies.length; i++) {
+    enemies[i].update();
+    enemies[i].collision(player);
+    enemies[i].collisionWithBullet(allBullets);
+  }
 
   for (let i = 0; i < allBullets.length; i++) {
     allBullets[i].update();

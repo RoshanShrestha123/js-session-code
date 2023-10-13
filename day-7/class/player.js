@@ -11,6 +11,7 @@ class Player {
       y: 0,
     };
 
+    this.isAlive = true;
     this.size = 50;
     this.image = new Image();
     this.image.src = "./ship.png";
@@ -35,6 +36,8 @@ class Player {
 
   update() {
     this.draw();
-    this.move();
+    if (this.isAlive) {
+      this.move();
+    }
   }
 }
