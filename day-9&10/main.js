@@ -2,6 +2,8 @@ const canvas = document.getElementById("canvas");
 const c = canvas.getContext("2d");
 
 const player = new Bird();
+const pipe = new Pipe(canvas.width);
+const pipe2 = new Pipe(pipe.position.x + pipe.size.width + 150);
 let score = 0;
 const background = new Background();
 let backgrounds = [
@@ -19,6 +21,11 @@ function animate() {
   backgrounds.forEach((element) => {
     element.update(player.isDead);
   });
+
+  pipe.update();
+  pipe.collision();
+  pipe2.update();
+  pipe2.collision();
 
   player.update();
 

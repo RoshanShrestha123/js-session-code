@@ -14,7 +14,7 @@ class Bird {
       y: 2,
     };
 
-    this.acceleration = 0.1;
+    this.acceleration = 0.2;
     this.isDead = false;
     this.img = new Image();
     this.img.src = "./frame-1.png";
